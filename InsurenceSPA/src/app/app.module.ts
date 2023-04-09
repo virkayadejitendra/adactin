@@ -6,7 +6,7 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatePremiumComponent } from './calculate-premium/calculate-premium.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HttpClient  } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule ,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
