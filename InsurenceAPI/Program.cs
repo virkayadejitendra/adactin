@@ -1,4 +1,5 @@
 using InsurenceAPI.Data;
+using InsurenceAPI.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionMiddleware>();
+
 
 app.UseAuthorization();
 
