@@ -18,17 +18,23 @@
             DateOfBirth is required with Minimum age 70.
           </div>
 
-          <label for="occupation">Occupation</label>
-          <select formControlName="occupation" class="form-control" name="occupation" required>
-            <option *ngFor="let item of occupationList">{{ item }}</option>
-          </select>
-
           <label for="sumInsured">Sum Insured</label>
           <input formControlName="sumInsured" type="number" name="sumInsured" class="form-control" id="sumInsured"
-            placeholder="Enter sum insured" />
+            placeholder="Enter sum insured" required />
           <div class="text-danger" *ngIf="premiumInputForm.controls.sumInsured.errors">
             Sum Insured is required
           </div>
+
+          <label for="occupation">Occupation</label>
+          <select formControlName="occupation" class="form-control" name="occupation" placeholder="Enter name" required>
+            <option value="" disabled selected></option>
+            <option *ngFor="let item of occupationList">{{ item }}</option>
+          </select>
+          <div class="text-danger" *ngIf="premiumInputForm.controls.occupation.errors">
+            Occupation is required
+          </div>
+
+
         </div>
       </form>
     </div>

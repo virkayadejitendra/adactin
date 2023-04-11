@@ -30,17 +30,21 @@ export class CalculatePremiumComponent implements OnInit {
       this.maxAgeValidator(70),
     ]),
     occupation: new FormControl('', Validators.required),
-    sumInsured: new FormControl(10000, Validators.required),
+    sumInsured: new FormControl(-1, [Validators.required, Validators.min(1)]),
   });
 
   occupationList: any;
   calcutedPremium: PremiumResult;
   calcultedAge: any;
 
-  ngOnInit(): void {
+  ngAfterViewInit():void{
     this.occupationService.getOccupations().subscribe((respose) => {
       this.occupationList = respose;
     });
+
+  }
+
+  ngOnInit(): void {
   }
   onSubmit() {
     if (this.premiumInputForm.valid) {
